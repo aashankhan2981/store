@@ -1,0 +1,17 @@
+
+    .cart {
+        animation: displaceContent 5s 2s forwards infinite alternate ;
+    }
+@keyframes displaceContent {
+    from { transform : translate(0vw) rotate(0deg); }
+        
+        to   { transform : translate(20vw)  rotate(65deg); 
+               }
+     /* slide down to make room for advertisements */
+}
+@keyframes rotating {
+    from { transform : rotate(0deg); }
+        
+        to   { transform : rotate(40deg);; 
+               }
+}

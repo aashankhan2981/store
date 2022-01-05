@@ -1,0 +1,12 @@
+<div class="flex px-[20px] pt-10 items-center gap-32 flex-row-reverse justify-center" >
+    <div class="" >
+        <img src={{items.image}} class="max-w-[300px]" alt="img">
+    </div>
+    <div class="" >
+        <h2 class="mt-[60px] max-w-[350px] text-2xl font-bold my-4" >{{items.title}}</h2>
+        <p class="text-[18px] max-w-[800px] font-medium" >{{items.description}}</p>
+        <p class="text-[18px] mt-[20px] max-w-[400px] font-medium" >{{items.category | uppercase}}</p>
+        <p class="text-[18px] my-[20px]  font-bold" >${{items.price}}</p>
+        <button (click)="addCart(items)" class="bg-blue-500 hover:bg-black text-bold rounded-lg text-white px-10 py-4" >Add to cart</button>
+    </div>
+</div>

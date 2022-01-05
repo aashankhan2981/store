@@ -1,0 +1,4 @@
+<div (click)="filter(title)"  class="hover:scale-105 flex gap-4  flex-col cursor-pointer  justify-center items-center" >
+    <img [src]="url" [class]="class" class="" alt="all-items  ">
+    <h3 class="text-[20px] font-semibold" [ngClass]="active==title?'border-b-2 border-black':'border-none'" >{{title}}</h3>
+</div>

@@ -1,0 +1,48 @@
+    <div *ngIf="cartItems.length>0;else elseblock" class="my-5   px-2 mx-[10px] xl:mx-[70px] border border-gray-200" >
+        <table class="md:table hidden w-full px-8"  >
+                <tr class="  font-bold   " >
+                        <th  class="text-sm  font-normal px-1 py-5 lg:text-lg lg:font-medium text-center border-collapse  border-b-2 border-black" *ngFor="let data of cartTable" >{{data}}</th>
+                </tr>
+            
+            
+                <tr  *ngFor="let item of cartItems;let indexOfelement=index" >
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" >{{indexOfelement+1}}</td>
+                    <td class="text-center  py-4 border-b-[1px] max-w-[170px] border-opacity-20 border-black" >{{item.title.slice(0,item.title.indexOf(" ")+1)}}</td>
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" ><img src={{item.image}} class="relative lg:left-[30px] lg:top-3 max-w-[50px]" alt="img"></td>
+                    <td class=" text-left border-b-[1px] px-3 border-opacity-20   max-w-[400px] border-black" ><p class="py-9">{{item.description.slice(0,item.description.lastIndexOf(".")+1)}}</p></td>
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" >${{item.price}}</td>
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" >{{item.quantity}}</td>
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" >${{item.total}}</td>
+                    <td class="text-center  border-b-[1px] border-opacity-20 border-black" > <button (click)="delete(item)" class="bg-[#f44336] hover:scale-75  text-white rounded-lg px-1 py-1" ><img src="../../../assets/svgs/delete.svg" alt="del-icon" class="max-w-[25px] " ></button></td>
+                </tr>
+        </table>
+        
+        <div class="flex gap-8 justify-center items-center">
+
+            <button (click)="Empty()" class="bg-red-500 hover:bg-black px-3 lg:px-5 rounded-lg py-2 text-[18px] text-white ">Empty Cart</button>
+            <button class="bg-blue-500 px-3 lg:px-5 hover:bg-black rounded-lg py-2 text-[18px] text-white" >Check out</button>
+            <button routerLink="/product" class="bg-green-400 hover:bg-black px-3 lg:px-5 rounded-lg py-2 text-[18px] text-white" >Shop More</button>
+            <div class="font-bold text-[18px]">
+                <h3>Grand Total:</h3>
+                <h3>{{grandTotal }}</h3>
+            </div>
+        </div>
+    </div>
+
+
+
+<ng-template #elseblock >
+    <div class="mt-8 px-4 py-4 relative flex md:flex-row flex-col gap-4 border overflow-hidden border-black border-opacity-50 mx-[20px] sm:mx-[70px] md:mx-20 justify-center items-center" >
+        <h3 class="md:absolute  left-6 text-[20px] font-semibold top-4 " >My Cart</h3>
+    <div class=" flex flex-col justify-center items-center" >
+        <img src="../../../assets/svgs/cartbig.png"  class="cart max-w-[340px] sm:max-w-[360px] md:max-w-[400px]" alt="cart">
+        <div class="my-4 pl-6 flex-col flex justify-center items-center gap-2" >
+            <h4 class="md:text-[24px]  text-center text-[20px] font-semibold  " >Your cart is empty!</h4>
+            <p class="text-[14px] font-medium  " >Add item to it now! </p>
+            <button routerLink="/product" class="bg-blue-500 px-[30px] hover:bg-black md:px-[60px] rounded-lg mt-5 text-white text-[16px] md:text-[20px] font-medium py-2" >Shop Now</button>
+        </div>
+        
+    </div>
+    
+</div>
+</ng-template>

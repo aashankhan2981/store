@@ -1,0 +1,19 @@
+<div  class="flex justify-center sm:justify-between md:justify-center items-center flex-wrap gap-5 md:space-x-[50px] lg:space-x-[80px] my-4 px-[20px] sm:px-[40px] md:px-[80px]  ">
+
+    
+    <app-item *ngFor=" let dataitem of data" [productList]="productList" (event)="changeValues($event)" [active]="active" [title]="dataitem.title" [url]="dataitem.url" [class]="dataitem.class" ></app-item>
+    
+</div>
+<hr class="w-full " >
+<div  class="mt-[40px]   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12  px-12  " >
+    <ng-container  *ngFor="let product of productList" >
+        <div  (click)="seeProduct(product)"  class="flex flex-col gap-4 justify-center border border-black border-opacity-20  py-4 px-2 items-center" >
+        <img routerLink="/item/{{product.title.slice(0,5)}}" [src]="product.image" class="h-[150px] w-[150px] mb-3 hover:scale-125  " [alt]="product.title">
+        <h4 class="text-center whitespace-nowrap max-w-[18ch] sm:max-w-[30ch] md:max-w-[20ch] xl:max-w-[30ch] mb-1 overflow-hidden text-ellipsis  text-[18px] font-semibold " > {{product.title}}</h4>
+        <p class="text-center xl:max-w-[38ch] max-w-[24ch] sm:max-w-[38ch] md:max-w-[28ch] whitespace-nowrap mb-1 overflow-hidden text-ellipsis " >{{product.description}}</p>
+        <p class="text-center font-[16px] font-semibold mb-1 " >Price: ${{product.price}}</p>
+        <button class="bg-blue-500 py-2 px-7 rounded-lg mb-3 hover:bg-black hover:text-white " (click)="addProd(product)" >Add to Card</button>
+    </div>
+    </ng-container>
+    
+</div>

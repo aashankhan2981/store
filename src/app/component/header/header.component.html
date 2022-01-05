@@ -1,0 +1,24 @@
+<header class="sticky z-10 top-0" >
+    <div class="bg-blue-400   py-4 flex justify-between items-center px-4 md:px-10">
+        <div class="flex gap-4 items-center cursor-pointer hover:scale-x-110" routerLink="/product" >
+        <img src="../../../assets/svgs/shipping.svg" class="min-w-[50px]" alt="logo">
+        <h3 class="text-white font-bold text-xl md:text-2xl" >{{"Store" | uppercase }} </h3>
+        </div>
+        <div class="md:flex hidden justify-center items-center" >
+            <input type="text" class="px-2 py-2 outline-none rounded-lg w-[400px] text-[16px] font-normal " placeholder="Search here" #entry (keydown.enter)="search(entry)"  >
+            <img src="../../../assets/svgs/search.svg" class="max-w-[25px] hover:scale-y-125 placeholder:scale-125 relative right-[35px] " alt="search-icon">
+        </div>
+        <button routerLink="/cart" class="flex justify-center hover:scale-125 items-center" >
+            <img src='../../../assets/svgs/cart.svg' class="max-w-[40px] " alt="cart-icon">
+            <div class="bg-red-500  font-normal text-[10px] text-white px-[6px] rounded-lg relative top-1 right-1 py-[1px] " >{{count}}</div>
+
+        </button>
+    </div>
+        <div *ngIf="toggle" class="bg-blue-500 py-2 md:hidden flex-row-reverse flex opacity-50 w-full px-4 fixed top-[72px]  items-center justify-center " >
+            <img src="../../../assets/svgs/cross.svg" class="cursor-pointer " (click)="setToggle()" alt="close">
+            <input type="text" class="px-2 text-white py-2 placeholder:text-white  outline-none bg-blue-500  w-[350px] bg-opacity-0 text-[16px]  font-bold " placeholder="Search here" #entry2 (keydown.enter)="search(entry2)"  >
+    
+        </div>
+        <img src="../../../assets/svgs/vector61-1282-01.jpg" (click)="setToggle()" class="hover:scale-110 flex md:hidden cursor-pointer max-w-[65px] fixed bottom-2 right-2" alt="search">
+
+</header>
